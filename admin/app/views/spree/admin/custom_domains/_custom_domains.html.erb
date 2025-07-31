@@ -1,0 +1,19 @@
+<% if current_store.custom_domains.any? %>
+  <div class="table-responsive rounded mt-3 border">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= Spree.t(:name) %></th>
+          <th><%= Spree.t(:active) %>?</th>
+          <th><%= Spree.t(:default) %>?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render collection: current_store.custom_domains, partial: 'spree/admin/custom_domains/custom_domain', cached: spree_base_cache_scope %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <%= render 'spree/admin/shared/no_resource_found' %>
+<% end %>
